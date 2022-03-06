@@ -1,0 +1,7 @@
+export DAEMON_NAME=regen
+export DAEMON_HOME=${HOME}/.${DAEMON_NAME}
+export CHAIN_ID=regen-1
+export DENOM=uregen
+export FEES=120000
+export ACC_ADDR=regen1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+export VAL_ADDR=regenvaloper1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
