@@ -13,9 +13,11 @@ Useful shell bash alias shortcuts for managing Cøsmos SDK.
 
 Add to end of ~/.bashrc
 
-`if [ -f ~/.sdk_aliases/.bash_aliases ]; then
+```
+if [ -f ~/.sdk_aliases/.bash_aliases ]; then
     . ~/.sdk_aliases/.bash_aliases
-fi`
+fi
+```
 
 Run
 
