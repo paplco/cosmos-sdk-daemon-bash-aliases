@@ -7,16 +7,15 @@ export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
-# Daemon environment variables. Edit as needed. Keep separate from .bash_aliases
-export SDK_VARS="~/.sdk_aliases/.sdk_vars"
-. $SDK_VARS
+# Daemon environment variables. Edit and move as needed. Keep separate from .aliases
+. ~/.sdk_aliases/.vars"
 
 # General useful shortcuts.
 alias home='cd ~/ '
 alias ..b='. ~/.bashrc '
 alias n='nano '
-alias nba='n ~/.bash_aliases '
-alias cba='cat ~/.bash_aliases '
+alias nba='n ~/.sdk_aliases/.aliases '
+alias cba='cat ~/.sdk_aliases/.aliases '
 alias pgen='openssl rand -base64 32 '
 alias la='ls -la '
 alias rmf='rm -Rf '
@@ -33,7 +32,7 @@ alias cvlog="journalctl -u cosmovisor.service -n 10 -f"
 
 # SDK shortcuts.
 alias sdk="${DAEMON_NAME} "
-alias sdkvars="n ${SDK_VARS} "
+alias sdkvars="n ~/.sdk_aliases/.vars "
 alias cdsdk="cd ${DAEMON_HOME}; la "
 alias cnf="cdsdk; cd config; la "
 alias cnfe="sdkcnf; n config.toml "
