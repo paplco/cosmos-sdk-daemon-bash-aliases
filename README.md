@@ -1,41 +1,39 @@
 # cosmos-sdk-daemon-bash-aliases
 Useful shell bash alias shortcuts for managing Cøsmos SDK.
 
-## Instructions
+Copy and run this script below. It will:
+
+1) Make an `~/.sdk_aliases` folder and clone repo into it.
+2) Add loading for `~/.sdk_aliases/.aliases` to .bashrc file.
+3) Make copy of `~/.sdk_aliases/.sdkvars_template` at `~/.sdkvars` and open it for editing.
 
 ```
+cd ~/
+
 mkdir .sdk_aliases 
 
 cd .sdk_aliases
 
 git clone https://github.com/paplco/cosmos-sdk-daemon-bash-aliases.git .
 
-```
-
-Run to add to end of ~/.bashrc:
-
-```
 echo "
-
 # Load Cøsmos SDK aliases
 if [ -f ~/.sdk_aliases/.aliases ]; then
     . ~/.sdk_aliases/.aliases
-fi " &>> ~/.bashrc
+fi
+" &>> ~/.bashrc
 
-```
-
-Run to reload .bashrc:
-
-```
 . ~/.bashrc
 
-```
-
-You should see:
-`=== {DAEMON_NAME} sdk aliases loaded ===`
-
-Now to set your sdk vars. This will copy the vars template and move the file up outside of the git directory. Run command:
-```
 setsdkvars
 
 ```
+
+After setting your variables, save file.
+
+Type `..b` to reload .bashrc file.
+
+You should now see:
+`=== {DAEMON_NAME} sdk aliases loaded ===`
+
+Enjoy!
