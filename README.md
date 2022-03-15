@@ -1,11 +1,7 @@
 # cosmos-sdk-daemon-bash-aliases
 Useful shell bash alias shortcuts for managing Cøsmos SDK.
 
-Copy and run this script below. It will:
-
-1) Make an `~/.sdk_aliases` folder and clone repo into it.
-2) Add loading for `~/.sdk_aliases/.aliases` to .bashrc file.
-3) Make copy of `~/.sdk_aliases/.sdkvars_template` at `~/.sdkvars` and open it for editing.
+Copy and paste these commands to command line to install:
 
 ```
 cd ~/
@@ -28,8 +24,13 @@ fi
 setsdkvars
 
 ```
+The above commands will:
 
-After setting your variables, save file.
+1) Make an `~/.sdk_aliases` folder and clone repo into it.
+2) Add loading for `~/.sdk_aliases/.aliases` to .bashrc file.
+3) Make copy of `~/.sdk_aliases/.sdkvars_template` at `~/.sdkvars` and open it for editing.
+
+After setting your variables, save the `.sdkvars` file and exit.
 
 Type `..b` to reload .bashrc file.
 
