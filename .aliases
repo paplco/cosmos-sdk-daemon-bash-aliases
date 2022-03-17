@@ -1,4 +1,4 @@
-# .bash_aliases for Cøsmos SDK.
+# .aliases for Cøsmos SDK.
 # https://github.com/paplco/cosmos-sdk-daemon-bash-aliases
 # Useful commands to add? Open PR. Thanks
 
@@ -16,8 +16,9 @@ fi
 alias home='cd ~/ '
 alias ..b='. ~/.bashrc '
 alias n='nano '
-alias nba='n ~/.sdk_aliases/.aliases '
-alias cba='cat ~/.sdk_aliases/.aliases '
+alias nsdk='n ~/.sdk_aliases/.aliases '
+alias nsdkv="n ~/.sdkvars "
+alias csdk='cat ~/.sdk_aliases/.aliases '
 alias pgen='openssl rand -base64 32 '
 alias la='ls -la '
 alias rmf='rm -Rf '
@@ -53,26 +54,33 @@ alias cvstop="sudo systemctl stop cosmovisor"
 alias cvlog="journalctl -u cosmovisor.service -n 10 -f"
 alias cvenable="sudo systemctl enable cosmovisor.service"
 
-# SDK shortcuts.
-alias sdk="${DAEMON_NAME} "
-alias sdkvars="n ~/.sdkvars "
-alias cdsdk="cd ${DAEMON_HOME}; la "
-alias cnf="cdsdk; cd config; la "
+# App shortcuts.
+alias app="${DAEMON_NAME} "
+alias cdapp="cd ${DAEMON_HOME}; la "
+alias cnf="cdapp; cd config; la "
 alias cnfe="cnf; n config.toml "
-alias bal="sdk q bank balances ${ACC_ADDR} "
-alias acc="sdk q account ${ACC_ADDR} "
-alias txbr="home; sdk tx broadcast tx.json "
+alias bal="app q bank balances ${ACC_ADDR} "
+alias acc="app q account ${ACC_ADDR} "
+alias txbr="home; app tx broadcast tx.json "
 alias txn="home; rm tx.json; n tx.json "
-alias txwd="home; acc; sdk tx distribution withdraw-rewards ${VAL_ADDR}  \
+alias txwd="home; acc; app tx distribution withdraw-rewards ${VAL_ADDR}  \
   --from=${ACC_ADDR} \
   --chain-id=${CHAIN_ID} \
   --commission \
   --fees=${FEES}${DENOM} \
   --generate-only "
-alias tdm="sdk tendermint "
-alias tdmaddr="tdm show-address "
-alias tdmid="tdm show-node-id "
-alias tdmval="tdm show-validator "
+alias tm="app tendermint "
+alias tmaddr="tm show-address "
+alias tmid="tm show-node-id "
+alias tmval="tm show-validator "
+
+# Peers. Thanks @https://github.com/dpdanpittman
+# Who your peers are
+alias pwho="curl -sS http://localhost:26657/net_info | jq -r '.result.peers[] | \"\(.node_info.moniker)\"'"
+# Numuber of peers
+alias pnum="curl -s 127.0.0.1:26657/net_info | grep n_peers"
+# Consensus state
+alias cstate="curl -s localhost:26657/consensus_state | grep 'height\/round\/step\|start_time\|round\"\|prevotes_bit_array\|precommits_bit_array' | sed -e 's/[ \t]*/\n/' | sed 's/[\",]//g'"
 
 function setsdkvars {
     if [ ! -f ~/.sdkvars ]; then
