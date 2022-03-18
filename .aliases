@@ -85,11 +85,12 @@ alias tmval="tm show-validator "
 
 # Peers. Thanks @https://github.com/dpdanpittman
 # Who your peers are
-alias pwho="curl -sS http://localhost:26657/net_info | jq -r '.result.peers[] | \"\(.node_info.moniker)\"'; pnum"
+alias pwho="curl -sS http://localhost:26657/net_info | jq -r '.result.peers[]' | grep 'moniker\|id\|remote_ip' | sed -e 's/[ \t]*//' | sed 's/[\",]//g' | sed 's/^id/\nid/g'; pnum "
+alias pmoniker="curl -sS http://localhost:26657/net_info | jq -r '.result.peers[] | \"\(.node_info.moniker)\"'; pnum "
 # Numuber of peers
-alias pnum="curl -s 127.0.0.1:26657/net_info | grep n_peers"
+alias pnum="curl -s 127.0.0.1:26657/net_info | grep n_peers "
 # Consensus state
-alias cstate="curl -s localhost:26657/consensus_state | grep 'height\/round\/step\|start_time\|round\"\|prevotes_bit_array\|precommits_bit_array' | sed -e 's/[ \t]*/\n/' | sed 's/[\",]//g'"
+alias cstate="curl -s localhost:26657/consensus_state | grep 'height\/round\/step\|start_time\|round\"\|prevotes_bit_array\|precommits_bit_array' | sed -e 's/[ \t]*/\n/' | sed 's/[\",]//g' "
 
 function setsdkvars {
     if [ ! -f ~/.sdkvars ]; then
@@ -104,4 +105,4 @@ alias dbyid="ls /dev/disk/by-id/"
 alias dresize="resize2fs /dev/disk/by-id/$(ls /dev/disk/by-id/)"
 dmnt; #We use blockchain disks mounted as drives, important for us to see this stat upon login automatically.
 
-echo "=== ${DAEMON_NAME} sdk aliases loaded v.0.1.2 ==="
+echo "=== ${DAEMON_NAME} sdk aliases loaded v.0.1.3 ==="
