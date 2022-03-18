@@ -54,6 +54,14 @@ alias cvstop="sudo systemctl stop cosmovisor"
 alias cvlog="journalctl -u cosmovisor.service -n 10 -f"
 alias cvenable="sudo systemctl enable cosmovisor.service"
 
+# App as systemctl service.
+alias appstart="sudo systemctl start ${DAEMON_NAME}"
+alias appstatus="sudo systemctl status ${DAEMON_NAME}"
+alias apprestart="sudo systemctl restart ${DAEMON_NAME}"
+alias appstop="sudo systemctl stop ${DAEMON_NAME}"
+alias applog="journalctl -u ${DAEMON_NAME}.service -n 10 -f"
+alias appenable="sudo systemctl enable ${DAEMON_NAME}.service"
+
 # App shortcuts.
 alias app="${DAEMON_NAME} "
 alias cdapp="cd ${DAEMON_HOME}; la "
@@ -95,4 +103,4 @@ alias dbyid="ls /dev/disk/by-id/"
 alias dresize="resize2fs /dev/disk/by-id/$(ls /dev/disk/by-id/)"
 dmnt; #We use blockchain disks mounted as drives, important for us to see this stat upon login automatically.
 
-echo "=== ${DAEMON_NAME} sdk aliases loaded ==="
+echo "=== ${DAEMON_NAME} sdk aliases loaded v.0.0.3 ==="
