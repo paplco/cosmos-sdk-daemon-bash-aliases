@@ -35,6 +35,8 @@ alias gco='git checkout '
 alias gsw='git switch '
 alias gst='git rev-parse HEAD; git status; '
 alias gaa='git add -A '
+alias gad='git add '
+alias gdf='git diff '
 alias grso='git remote show origin '
 alias grro='git remote remove origin '
 alias grou='git config --get remote.origin.url'
@@ -53,6 +55,8 @@ alias cvstatus="sudo systemctl status cosmovisor"
 alias cvrestart="sudo systemctl restart cosmovisor"
 alias cvstop="sudo systemctl stop cosmovisor"
 alias cvlog="journalctl -u cosmovisor.service -n 10 -f"
+alias cvlogn="journalctl -u cosmovisor.service -n "
+alias cvlogg="journalctl -u cosmovisor.service | grep "
 alias cvenable="sudo systemctl enable cosmovisor.service"
 
 # App as systemctl service.
@@ -61,6 +65,8 @@ alias appstatus="sudo systemctl status ${DAEMON_NAME}"
 alias apprestart="sudo systemctl restart ${DAEMON_NAME}"
 alias appstop="sudo systemctl stop ${DAEMON_NAME}"
 alias applog="journalctl -u ${DAEMON_NAME}.service -n 10 -f"
+alias applogn="journalctl -u ${DAEMON_NAME}.service -n "
+alias applogg="journalctl -u ${DAEMON_NAME}.service | grep "
 alias appenable="sudo systemctl enable ${DAEMON_NAME}.service"
 
 # App shortcuts.
