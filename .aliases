@@ -112,4 +112,4 @@ alias dbyid="ls /dev/disk/by-id/"
 alias dresize="resize2fs /dev/disk/by-id/$(ls /dev/disk/by-id/)"
 dmnt; #We use blockchain disks mounted as drives, important for us to see this stat upon login automatically.
 
-echo "=== ${DAEMON_NAME} sdk aliases loaded v.0.1.4 ==="
+echo "=== ${DAEMON_NAME} sdk aliases loaded v.0.1.5 ==="
