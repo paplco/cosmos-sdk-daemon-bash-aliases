@@ -68,6 +68,7 @@ alias applog="journalctl -u ${DAEMON_NAME}.service -n 10 -f"
 alias applogn="journalctl -u ${DAEMON_NAME}.service -n "
 alias applogg="journalctl -u ${DAEMON_NAME}.service | grep "
 alias appenable="sudo systemctl enable ${DAEMON_NAME}.service"
+alias lsservice="systemctl --type=service"
 
 # App shortcuts.
 alias app="${DAEMON_NAME} "
