@@ -16,10 +16,10 @@ fi
 alias home='cd ~/ '
 alias ..b='. ~/.bashrc '
 alias n='nano '
-alias nsdk='n ~/.sdk_aliases/.aliases '
-alias nsdkv="n ~/.sdkvars "
-alias csdk='cat ~/.sdk_aliases/.aliases '
-alias upali='cd ~/.sdk_aliases/;gpl;..b '
+alias ali='n ~/.sdk_aliases/.aliases '
+alias aliv="n ~/.sdkvars "
+alias alic='cat ~/.sdk_aliases/.aliases '
+alias aliup='cd ~/.sdk_aliases/;gpl;..b '
 alias pgen='openssl rand -base64 32 '
 alias la='ls -la '
 alias rmf='rm -Rf '
@@ -58,6 +58,18 @@ alias cvlog="journalctl -u cosmovisor.service -n 10 -f"
 alias cvlogn="journalctl -u cosmovisor.service -n "
 alias cvlogg="journalctl -u cosmovisor.service | grep "
 alias cvenable="sudo systemctl enable cosmovisor.service"
+alias cvedit="nano /etc/systemd/system/cosmovisor.service"
+
+# Orchestrator.
+alias orstart="sudo systemctl start orchestrator"
+alias orstatus="sudo systemctl status orchestrator"
+alias orrestart="sudo systemctl restart orchestrator"
+alias orstop="sudo systemctl stop orchestrator"
+alias orlog="journalctl -u orchestrator.service -n 10 -f"
+alias orlogn="journalctl -u orchestrator.service -n "
+alias orlogg="journalctl -u orchestrator.service | grep "
+alias orenable="sudo systemctl enable orchestrator.service"
+alias oredit="nano /etc/systemd/system/orchestrator.service"
 
 # App as systemctl service.
 alias appstart="sudo systemctl start ${DAEMON_NAME}"
@@ -112,4 +124,4 @@ alias dbyid="ls /dev/disk/by-id/"
 alias dresize="resize2fs /dev/disk/by-id/$(ls /dev/disk/by-id/)"
 dmnt; #We use blockchain disks mounted as drives, important for us to see this stat upon login automatically.
 
-echo "=== ${DAEMON_NAME} sdk aliases loaded v.0.1.5 ==="
+echo "=== ${DAEMON_NAME} aliases loaded v.0.1.5 ==="
