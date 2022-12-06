@@ -81,7 +81,7 @@ alias applog="journalctl -u ${DAEMON_NAME}.service -n 10 -f -o cat "
 alias applogn="journalctl -u ${DAEMON_NAME}.service -n -o cat "
 alias applogg="journalctl -u ${DAEMON_NAME}.service -o cat | grep "
 alias appenable="sudo systemctl enable ${DAEMON_NAME}.service"
-alias appedit="nano /etc/systemd/system/cosmovisor.service"
+alias appedit="nano /etc/systemd/system/${DAEMON_NAME}.service"
 alias appreload="systemctl daemon-reload"
 alias lsservice="systemctl --type=service"
 
