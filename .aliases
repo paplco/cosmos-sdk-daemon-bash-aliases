@@ -60,6 +60,7 @@ alias cvlogg="journalctl -u cosmovisor.service -o cat | grep "
 alias cvenable="sudo systemctl enable cosmovisor.service"
 alias cvedit="nano /etc/systemd/system/cosmovisor.service"
 
+
 # Orchestrator.
 alias orstart="sudo systemctl start orchestrator"
 alias orstatus="sudo systemctl status orchestrator"
@@ -80,6 +81,8 @@ alias applog="journalctl -u ${DAEMON_NAME}.service -n 10 -f -o cat "
 alias applogn="journalctl -u ${DAEMON_NAME}.service -n -o cat "
 alias applogg="journalctl -u ${DAEMON_NAME}.service -o cat | grep "
 alias appenable="sudo systemctl enable ${DAEMON_NAME}.service"
+alias appedit="nano /etc/systemd/system/cosmovisor.service"
+alias appreload="systemctl daemon-reload"
 alias lsservice="systemctl --type=service"
 
 # App shortcuts.
