@@ -132,4 +132,4 @@ function checksc {
 ${DAEMON_NAME} q gov proposal $1 --output json | jq -r '.content.wasm_byte_code' | base64 -d | gzip -dc | sha256sum
 }
 
-echo "=== ${DAEMON_NAME} aliases loaded v.0.1.7 ==="
+echo "=== ${DAEMON_NAME} aliases loaded v.0.1.8 ==="
