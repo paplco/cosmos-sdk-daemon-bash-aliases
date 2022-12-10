@@ -17,7 +17,7 @@ alias home='cd ~/ '
 alias ..b='. ~/.bashrc '
 alias n='nano '
 alias ali='n ~/.sdk_aliases/.aliases '
-alias aliv="n ~/.sdkvars "
+alias alivars="n ~/.sdkvars "
 alias alic='cat ~/.sdk_aliases/.aliases '
 alias aliup='cd ~/.sdk_aliases/;gpl;..b '
 alias pgen='openssl rand -base64 32 '
@@ -132,8 +132,20 @@ function checksc {
 ${DAEMON_NAME} q gov proposal $1 --output json | jq -r '.content.wasm_byte_code' | base64 -d | gzip -dc | sha256sum
 }
 
+# sdk functions
+function qauthz {
+  cmd="${DAEMON_NAME} q authz grants-by-grantee $1"
+  echo $cmd;
+  $cmd; 
+}
+function txsign {
+  cmd="${DAEMON_NAME} tx sign tx.json -a ${account_number} -s $1 --output-document tx.json --chain-id ${CHAIN_ID} --from ${ACC_ADDR}";
+  echo $cmd;
+  $cmd;
+}
+
 #npm
 alias nrd="npm run dev"
 alias nrb="npm run build"
 alias nrs="npm run start"
-echo "=== ${DAEMON_NAME} aliases loaded v.0.1.9 ==="
+echo "=== ${DAEMON_NAME} aliases loaded v.0.1.10 ==="
