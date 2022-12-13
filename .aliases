@@ -148,5 +148,5 @@ function txsign {
 alias nrd="npm run dev"
 alias nrb="npm run build"
 alias nrs="npm run start"
-alias nbs="nrb;nbs"
-echo "=== ${DAEMON_NAME} aliases loaded v.0.1.11 ==="
+alias nbs="nrb;nrs"
+echo "=== ${DAEMON_NAME} aliases loaded v.0.1.11a ==="
