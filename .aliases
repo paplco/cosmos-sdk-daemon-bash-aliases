@@ -37,8 +37,10 @@ alias gst='git rev-parse HEAD; git status; '
 alias gaa='git add -A '
 alias gad='git add '
 alias gdf='git diff '
+alias gfa='git fetch --all '
 alias grso='git remote show origin '
 alias grro='git remote remove origin '
+alias grao='git remote add origin '
 alias grou='git config --get remote.origin.url'
 alias gig='n .gitignore '
 alias gresetmain='git fetch origin; git reset --hard origin/main'
@@ -150,4 +152,8 @@ alias nrd="npm run dev"
 alias nrb="npm run build"
 alias nrs="npm run start"
 alias nbs="nrb;nrs"
+
+#usually it
+export PATH=$PATH:/usr/local/go/bin
+
 echo "=== ${DAEMON_NAME} aliases loaded v.0.1.12 ==="
