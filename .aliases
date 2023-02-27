@@ -41,6 +41,7 @@ alias gfa='git fetch --all '
 alias grso='git remote show origin '
 alias grro='git remote remove origin '
 alias grao='git remote add origin '
+alias grup='grro; grao '
 alias grou='git config --get remote.origin.url'
 alias gig='n .gitignore '
 alias gresetmain='git fetch origin; git reset --hard origin/main'
@@ -158,4 +159,4 @@ alias nbs="nrb;nrs"
 #usually it
 export PATH=$PATH:/usr/local/go/bin
 
-echo "=== ${DAEMON_NAME} aliases loaded v.0.1.12 ==="
+echo "=== ${DAEMON_NAME} aliases loaded v.0.1.13 ==="
