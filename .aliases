@@ -37,8 +37,11 @@ alias gst='git rev-parse HEAD; git status; '
 alias gaa='git add -A '
 alias gad='git add '
 alias gdf='git diff '
+alias gfa='git fetch --all '
 alias grso='git remote show origin '
 alias grro='git remote remove origin '
+alias grao='git remote add origin '
+alias grup='grro; grao '
 alias grou='git config --get remote.origin.url'
 alias gig='n .gitignore '
 alias gresetmain='git fetch origin; git reset --hard origin/main'
@@ -92,6 +95,9 @@ alias cnf="cdapp; cd config; la "
 alias cnfe="cnf; n config.toml "
 alias bal="app q bank balances ${ACC_ADDR} "
 alias acc="app q account ${ACC_ADDR} "
+alias val="app keys show ${ACC_ADDR} --bech val"
+alias qtx="app q tx "
+alias sjq="app status | jq "
 alias txbr="home; app tx broadcast tx.json "
 alias txn="home; rm tx.json; n tx.json "
 alias txwd="home; acc; app tx distribution withdraw-rewards ${VAL_ADDR}  \
@@ -149,4 +155,8 @@ alias nrd="npm run dev"
 alias nrb="npm run build"
 alias nrs="npm run start"
 alias nbs="nrb;nrs"
-echo "=== ${DAEMON_NAME} aliases loaded v.0.1.11a ==="
+
+#usually it
+export PATH=$PATH:/usr/local/go/bin
+
+echo "=== ${DAEMON_NAME} aliases loaded v.0.1.13 ==="
