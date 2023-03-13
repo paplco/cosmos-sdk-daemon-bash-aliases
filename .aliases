@@ -140,7 +140,12 @@ ${DAEMON_NAME} q gov proposal $1 --output json | jq -r '.content.wasm_byte_code'
 
 # sdk functions
 function qauthz {
-  cmd="${DAEMON_NAME} q authz grants-by-grantee $1"
+  cmd="${DAEMON_NAME} q authz grants-by-granter $1"
+  echo $cmd;
+  $cmd; 
+}
+function qfeegrant {
+  cmd="${DAEMON_NAME} q feegrant grants-by-granter $1"
   echo $cmd;
   $cmd; 
 }
@@ -159,7 +164,7 @@ alias nbs="nrb;nrs"
 #usually it
 export PATH=$PATH:/usr/local/go/bin
 
-echo "=== ${DAEMON_NAME} aliases loaded v0.1.14 ==="
+echo "=== ${DAEMON_NAME} aliases loaded v0.1.15 ==="
 
 #tmux let's get 'er started
 tmux
