@@ -164,7 +164,6 @@ alias nbs="nrb;nrs"
 #usually it
 export PATH=$PATH:/usr/local/go/bin
 
+
 echo "=== ${DAEMON_NAME} aliases loaded v0.1.15 ==="
 
-#tmux let's get 'er started
-tmux
