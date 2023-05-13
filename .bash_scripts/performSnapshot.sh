@@ -1,3 +1,4 @@
+
 performSnapshot() {
   # Check if confirmSnapshot is not defined and prompt for it
   if [[ -z "${confirmSnapshot+x}" ]]; then
@@ -27,3 +28,4 @@ performSnapshot() {
     fi
   fi
 }
+echo "performSnapshot sourced"
