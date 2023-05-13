@@ -48,6 +48,8 @@ alias gig='n .gitignore '
 alias gresetmain='git fetch origin; git reset --hard origin/main'
 alias gpusubs='git pull --recurse-submodules && git submodule update'
 alias glog='git log --graph --decorate --pretty=oneline --abbrev-commit'
+git config --global push.default current
+
 
 # Cosmovisor.
 export DAEMON_RESTART_AFTER_UPGRADE=true
