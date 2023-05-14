@@ -32,9 +32,15 @@ performSnapshot() {
       lz4 -c -d "$filename" | pv | tar -x -C "$DAEMON_HOME"
     elif [[ "$extension" == "gz" ]]; then
       pv "$filename" | tar -xzf - -C "$DAEMON_HOME"
-      appstart
     else
       echo "Unsupported file extension: $extension"
+      return
+    fi
+    # Check if the last command was successful before running appstart
+    if [ $? -eq 0 ]; then
+      appstart
+    else
+      echo "Extraction failed."
     fi
   fi
 
