@@ -152,9 +152,10 @@ function qfeegrant {
   $cmd; 
 }
 function txsign {
-  cmd="${DAEMON_NAME} tx sign tx.json -a ${account_number} -s $1 --output-document tx.json --chain-id ${CHAIN_ID} --from ${ACC_ADDR}";
+  cmd="${DAEMON_NAME} tx sign tx.json --from valkey --chain-id $CHAIN_ID --fees 5000$DENOM > tx_temp.json && mv tx_temp.json tx.json";
   echo $cmd;
   $cmd;
+  
 }
 
 #npm
@@ -174,5 +175,5 @@ done
 
 df -h
 
-echo "=== ${DAEMON_NAME} aliases loaded v0.1.16 ==="
+echo "=== ${DAEMON_NAME} aliases loaded v0.1.17 ==="
 
