@@ -173,7 +173,12 @@ do
   source "$file"
 done
 
+# Load custom aliases if they exist.
+if [ -f ~/.aliases_costom ]; then
+  . ~/.aliases_costom
+fi
+
 df -h
 
-echo "=== ${DAEMON_NAME} aliases loaded v0.1.17 ==="
+echo "=== ${DAEMON_NAME} aliases loaded v0.1.18 ==="
 
