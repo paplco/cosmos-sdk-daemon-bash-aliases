@@ -174,8 +174,9 @@ do
 done
 
 # Load custom aliases if they exist.
-if [ -f ~/.aliases_costom ]; then
-  . ~/.aliases_costom
+if [ -f $HOME/.sdk_aliases/.aliases_custom ]; then
+  . $HOME/.sdk_aliases/.aliases_custom 
+  echo "LOADED $HOME/.sdk_aliases/.aliases_custom"
 fi
 
 df -h
