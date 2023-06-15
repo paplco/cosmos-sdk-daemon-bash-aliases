@@ -10,7 +10,7 @@ mkdir .sdk_aliases
 
 cd .sdk_aliases
 
-git clone https://github.com/paplco/cosmos-sdk-daemon-bash-aliases.git .
+git clone https://github.com/LOA-Labs/cosmos-sdk-daemon-bash-aliases.git .
 
 echo "
 # Load Cøsmos SDK aliases
