@@ -19,7 +19,7 @@ alias n='nano '
 alias ali='n ~/.sdk_aliases/.aliases '
 alias alivars="n ~/.sdkvars "
 alias alic='cat ~/.sdk_aliases/.aliases '
-alias aliup='cd ~/.sdk_aliases/;gpl;..b '
+alias aliup='cd ~/.sdk_aliases/;gpl;..b;cd ~/'
 alias pgen='openssl rand -base64 32 '
 alias la='ls -la '
 alias rmf='rm -Rf '
@@ -32,6 +32,7 @@ alias gpu='git push '
 alias gcm='git commit '
 alias gba='git branch -a '
 alias gco='git checkout '
+alias gcob='git checkout -b '
 alias gsw='git switch '
 alias gst='git rev-parse HEAD; git status; '
 alias gaa='git add -A '
@@ -47,6 +48,8 @@ alias gig='n .gitignore '
 alias gresetmain='git fetch origin; git reset --hard origin/main'
 alias gpusubs='git pull --recurse-submodules && git submodule update'
 alias glog='git log --graph --decorate --pretty=oneline --abbrev-commit'
+git config --global push.default current
+
 
 # Cosmovisor.
 export DAEMON_RESTART_AFTER_UPGRADE=true
@@ -131,11 +134,10 @@ function setsdkvars {
 alias dmnt="df -h | grep 'mnt' "
 alias dbyid="ls /dev/disk/by-id/"
 alias dresize="resize2fs /dev/disk/by-id/$(ls /dev/disk/by-id/)"
-dmnt; #We use blockchain disks mounted as drives, important for us to see this stat upon login automatically.
 
 # prop wasm check
 function checksc {
-${DAEMON_NAME} q gov proposal $1 --output json | jq -r '.content.wasm_byte_code' | base64 -d | gzip -dc | sha256sum
+  ${DAEMON_NAME} q gov proposal $1 --output json | jq -r '.content.wasm_byte_code' | base64 -d | gzip -dc | sha256sum
 }
 
 # sdk functions
@@ -150,9 +152,10 @@ function qfeegrant {
   $cmd; 
 }
 function txsign {
-  cmd="${DAEMON_NAME} tx sign tx.json -a ${account_number} -s $1 --output-document tx.json --chain-id ${CHAIN_ID} --from ${ACC_ADDR}";
+  cmd="${DAEMON_NAME} tx sign tx.json --from valkey --chain-id $CHAIN_ID --fees 5000$DENOM > tx_temp.json && mv tx_temp.json tx.json";
   echo $cmd;
   $cmd;
+  
 }
 
 #npm
@@ -164,6 +167,19 @@ alias nbs="nrb;nrs"
 #usually it
 export PATH=$PATH:/usr/local/go/bin
 
+#source additional helper scripts
+for file in $HOME/.sdk_aliases/.bash_scripts/*.sh
+do
+  source "$file"
+done
 
-echo "=== ${DAEMON_NAME} aliases loaded v0.1.15 ==="
+# Load custom aliases if they exist.
+if [ -f $HOME/.sdk_aliases/.aliases_custom ]; then
+  . $HOME/.sdk_aliases/.aliases_custom 
+  echo "LOADED $HOME/.sdk_aliases/.aliases_custom"
+fi
+
+df -h
+
+echo "=== ${DAEMON_NAME} aliases loaded v0.1.18 ==="
 
